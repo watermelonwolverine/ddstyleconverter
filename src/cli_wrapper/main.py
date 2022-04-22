@@ -5,7 +5,7 @@ import sys
 import traceback
 
 import ddstyleconverter
-from cli_wrapper.__args import version_option, help_option, map_arg, out_arg
+from cli_wrapper.__args import version_option, help_option, conversion_map_arg, out_arg
 from cli_wrapper.__args_processor import check_option_args, configure_logging, read_string_arg
 from cli_wrapper.__constants import app_name, issues_url
 from cli_wrapper.__help_provider import tell_user_how_to_use_the_program
@@ -70,7 +70,7 @@ def do_run() -> None:
         print("{0} version: {1}".format(app_name, ddstyleconverter.__version__))
         return
 
-    path_to_conversion_map = read_string_arg(map_arg, args)
+    path_to_conversion_map = read_string_arg(conversion_map_arg, args)
     path_to_output_dd_file = read_string_arg(out_arg, args)
 
     if len(args) > 1:

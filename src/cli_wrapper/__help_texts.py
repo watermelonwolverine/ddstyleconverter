@@ -1,12 +1,13 @@
+from cli_wrapper.__args import verbose_info_option, verbose_debug_option, version_option, help_option, out_arg, conversion_map_arg
 from cli_wrapper.__constants import app_name
 
 about = "\
 About\n\
 =====\n\
 \n\
-This is a prototype of a programs that allows you to change the style of DungeonDraft maps with the help of conversion files.\n\
+This is a prototype of a program that allows you to change the style of DungeonDraft maps with the help of conversion files.\n\
 \n\
-Conversion files are a sort of look-up map which tell the program how to conversion should be done.\n\
+A conversion file is a sort of look-up map which tell the program how to conversion should be done.\n\
 For more information about creating conversion maps see \"How to create conversion maps\"\n\
 \n\
 You can convert: materials to other materials, objects to other materials and so on. \n\
@@ -22,29 +23,29 @@ Usage\n\
 \n\
 IMPORTANT:  \n\
 Add all the asset packs you need to the map before you do the conversion. \n\
-If you try to open a map that has references to assets to an un-imported asset pack it will just load forever. \n\
+If you try to open a map that has references to assets of an un-imported asset pack it will just load forever. \n\
 \n\
 Syntax\n\
 ------\n\
 \n\
-`{0} [--verbose-info, --verbose-debug, --version, --help] target_path --out output_path --map map_path`\n\
+`{0} [{1}, {2}, {3}, {4}] target_path {5} output_path {6} conversion_map_path`\n\
 \n\
-`target_path`: Path to the file which should be processed\n\
+`target_path`: Path to the file which should be processed.\n\
 \n\
-`output_path`: File path to where the result should be written\n\
+`output_path`: File path to where the result should be written. The file itself must not exist but the parent directory must.\n\
 \n\
-`map_path`: Path to the conversion map file\n\
+`conversion_map_path`: Path to the conversion map file.\n\
 \n\
 Options\n\
 -------\n\
 \n\
-`--verbose-info`: Enables verbose output to console\n\
+`{1}`: Enables verbose output to console\n\
 \n\
-`--verbose-debug`: Enables very verbose output to console\n\
+`{2}`: Enables very verbose output to console\n\
 \n\
-`--version`: Print version and exits\n\
+`{3}`: Print version and exits\n\
 \n\
-`--help`: Display help and exit \n\
+`{4}`: Display help and exit \n\
 \n\
 Examples\n\
 --------\n\
@@ -52,11 +53,17 @@ Examples\n\
 Converting a map:\n\
 \n\
 Ubuntu:\n\
-`{0} path/to/file.dungeondraft_map --out path/to/output_file.dungeondraft_map --map path/to/conversion_map.json`\n\
+`{0} path/to/file.dungeondraft_map {5} path/to/output_file.dungeondraft_map {6} path/to/conversion_map.json`\n\
 \n\
 Windows:\n\
-`{0}.exe path\\to\\file.dungeondraft_map --out path\\to\\output_file.dungeondraft_map --map path\\to\\conversion_map.json`".format(
-    app_name)
+`{0}.exe path\\to\\file.dungeondraft_map {5} path\\to\\output_file.dungeondraft_map {6} path\\to\\conversion_map.json`".format(
+    app_name,
+    verbose_info_option,
+    verbose_debug_option,
+    version_option,
+    help_option,
+    out_arg,
+    conversion_map_arg)
 
 issues = "\
 Known Issues and Quirks\n\
@@ -129,7 +136,7 @@ Uninstallation: Windows\n\
 \n\
 Delete {0}.exe file from the installation directory.\n\
 \n\
-Remove the path to the installation directory from the PATH system environment variable.".format(app_name)
+Optional: Remove the path to the installation directory from the PATH system environment variable.".format(app_name)
 
 installation_ubuntu = "Installation: Ubuntu 16.04 - 20.04\n\
 =================================\n\

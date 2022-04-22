@@ -2,7 +2,7 @@ import logging
 import sys
 from typing import List
 
-from cli_wrapper.__args import verbose_info_option, verbose_debug_option, map_arg, out_arg, allowed_args
+from cli_wrapper.__args import verbose_info_option, verbose_debug_option, conversion_map_arg, out_arg, allowed_args
 from ddstyleconverter.exceptions import DungeonDraftStyleConverterException
 
 
@@ -28,7 +28,7 @@ def __check_for_duplicate_args(args: List[str]) -> None:
 
 
 def __check_for_missing_args(args: List[str]) -> None:
-    for arg in [map_arg, out_arg]:
+    for arg in [conversion_map_arg, out_arg]:
         if arg not in args:
             raise DungeonDraftStyleConverterException("Missing arg {0}".format(arg))
 

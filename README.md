@@ -1,9 +1,9 @@
 About
 =====
 
-This is a prototype of a programs that allows you to change the style of DungeonDraft maps with the help of conversion files.
+This is a prototype of a program that allows you to change the style of DungeonDraft maps with the help of conversion files.
 
-Conversion files are a sort of look-up map which tell the program how to conversion should be done.
+A conversion file is a sort of look-up map which tell the program how to conversion should be done.
 For more information about creating conversion maps see "How to create conversion maps"
 
 You can convert: materials to other materials, objects to other materials and so on. 
@@ -72,7 +72,7 @@ Uninstallation: Windows
 
 Delete ddstyleconverter.exe file from the installation directory.
 
-Remove the path to the installation directory from the PATH system environment variable.
+Optional: Remove the path to the installation directory from the PATH system environment variable.
 
 Installation: Ubuntu 16.04 - 20.04
 =================================
@@ -143,18 +143,18 @@ Usage
 
 IMPORTANT:  
 Add all the asset packs you need to the map before you do the conversion. 
-If you try to open a map that has references to assets to an un-imported asset pack it will just load forever. 
+If you try to open a map that has references to assets of an un-imported asset pack it will just load forever. 
 
 Syntax
 ------
 
-`ddstyleconverter [--verbose-info, --verbose-debug, --version, --help] target_path --out output_path --map map_path`
+`ddstyleconverter [--verbose-info, --verbose-debug, --version, --help] target_path --out output_path --cmap conversion_map_path`
 
 `target_path`: Path to the file which should be processed
 
-`output_path`: File path to where the result should be written
+`output_path`: File path to where the result should be written. The file itself must not exist but the parent directory must.
 
-`map_path`: Path to the conversion map file
+`conversion_map_path`: Path to the conversion map file
 
 Options
 -------
@@ -173,10 +173,10 @@ Examples
 Converting a map:
 
 Ubuntu:
-`ddstyleconverter path/to/file.dungeondraft_map --out path/to/output_file.dungeondraft_map --map path/to/conversion_map.json`
+`ddstyleconverter path/to/file.dungeondraft_map --out path/to/output_file.dungeondraft_map --cmap path/to/conversion_map.json`
 
 Windows:
-`ddstyleconverter.exe path\to\file.dungeondraft_map --out path\to\output_file.dungeondraft_map --map path\to\conversion_map.json`
+`ddstyleconverter.exe path\to\file.dungeondraft_map --out path\to\output_file.dungeondraft_map --cmap path\to\conversion_map.json`
 
 Known Issues and Quirks
 =======================
