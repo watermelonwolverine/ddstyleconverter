@@ -1,0 +1,112 @@
+{
+  "style_maps": {
+    "materials": [
+      {
+        "from_texture": "res://textures/materials/lava_tile.png",
+        "to_texture": "res://packs/xjCzavyl/textures/materials/lava_tile.png"
+      },
+      {
+        "from_texture": "res://textures/materials/ice_tile.png",
+        "to_texture": "res://packs/xjCzavyl/textures/materials/ice_tile.png"
+      }
+    ],
+    "objects": [
+      {
+        "from_texture": "res://textures/objects/activities/smithing/anvil.png",
+        "to_texture": "res://packs/xjCzavyl/textures/objects/anvil_01.png",
+        "translation": "Vector2(12, 1.44)",
+        "rotation": 0,
+        "scale": "Vector2( 0.892452, 0.892452 )"
+      },
+      {
+        "from_texture": "res://textures/objects/camp/campfire_06.png",
+        "to_texture": "res://packs/xjCzavyl/textures/objects/campfire_05.png"
+      },
+      {
+        "from_texture": "res://textures/objects/furniture/beds/bed_02.png",
+        "to_texture": "res://packs/xjCzavyl/textures/objects/bed_03.png"
+      },
+      {
+        "from_texture": "res://textures/objects/structures/fountains/fountain_03.png",
+        "to_texture": "res://packs/xjCzavyl/textures/objects/fountain_02.png",
+        "scale": "Vector2( 0.468059, 0.468059 )",
+        "rotation": -1.570794
+      },
+      {
+        "from_texture": "res://textures/objects/supplies/barrels/barrel_02.png",
+        "to_texture": "res://packs/xjCzavyl/textures/objects/barrel_02.png"
+      },
+      {
+        "from_texture": "res://textures/objects/supplies/crates/crate_03.png",
+        "to_texture": "res://packs/xjCzavyl/textures/objects/box_07.png"
+      },
+      {
+        "from_texture": "res://textures/objects/vegetation/trees/tree_big_green_01.png",
+        "to_texture": "res://packs/xjCzavyl/textures/objects/shaded_tree_04.png"
+      },
+      {
+        "from_texture": "res://textures/objects/furniture/chairs/round_chair_01.png",
+        "to_texture": "res://packs/xjCzavyl/textures/objects/chair_01.png"
+      },
+      {
+        "from_texture": "res://textures/objects/activities/administration/book_04.png",
+        "to_texture": "res://packs/xjCzavyl/textures/objects/book_01.png",
+        "translation": "Vector2(-11.58, -1.95)",
+        "rotation": -0.698132,
+        "scale": "Vector2( 0.552237, 0.552237 )"
+      },
+      {
+        "from_texture": "res://textures/objects/activities/farming/cabbage_01.png",
+        "to_texture": "res://packs/xjCzavyl/textures/objects/cabbage_01.png"
+      }
+    ],
+    "paths": [
+      {
+        "from_texture": "res://textures/paths/blood_trail.png",
+        "to_texture": "res://packs/xjCzavyl/textures/paths/blood_trail_big.png"
+      },
+      {
+        "from_texture": "res://textures/paths/cliff.png",
+        "to_texture": "res://packs/xjCzavyl/textures/paths/2_cave_base.png"
+      },
+      {
+        "from_texture": "res://textures/paths/chain.png",
+        "to_texture": "res://packs/xjCzavyl/textures/paths/chain.png"
+      },
+      {
+        "from_texture": "res://textures/paths/rope_(thick).png",
+        "to_texture": "res://packs/xjCzavyl/textures/paths/rope.png"
+      },
+      {
+        "from_texture": "res://textures/paths/stairs_stone.png",
+        "to_texture": "res://packs/xjCzavyl/textures/paths/stairs_stone_tiled.png"
+      }
+    ],
+    "patterns": [
+      {
+        "from_texture": "res://textures/tilesets/simple/tileset_diamond_2.png",
+        "to_texture": "res://packs/xjCzavyl/textures/patterns/colorable/ch_diamond_one.png",
+        "rotation": "0"
+      }
+    ],
+    "portals": [
+      {
+        "from_texture": "res://textures/portals/door_00.png",
+        "to_texture": "res://packs/xjCzavyl/textures/portals/door_wood_08.png"
+      }
+    ],
+    "roofs": [
+      {
+        "from_texture": "res://textures/roofs/flat_clay_red/tiles.png",
+        "to_texture": "res://packs/xjCzavyl/textures/roofs/flat_clay_red/tiles.png"
+      }
+    ],
+    "terrain": [],
+    "walls": [
+      {
+        "from_texture": "res://textures/walls/battlements.png",
+        "to_texture": "res://packs/xjCzavyl/textures/walls/parapet.png"
+      }
+    ]
+  }
+}
