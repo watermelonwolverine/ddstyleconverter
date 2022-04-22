@@ -2,7 +2,7 @@ import logging
 import sys
 from typing import List
 
-from cli_wrapper.__args import verbose_info_option, verbose_debug_option, conversion_map_arg, out_arg, allowed_args
+from cli_wrapper.__args import verbose_info_option, verbose_debug_option, allowed_args
 from ddstyleconverter.exceptions import DungeonDraftStyleConverterException
 
 
@@ -27,17 +27,10 @@ def __check_for_duplicate_args(args: List[str]) -> None:
             raise DungeonDraftStyleConverterException("Only one occurrence per option is allowed")
 
 
-def __check_for_missing_args(args: List[str]) -> None:
-    for arg in [conversion_map_arg, out_arg]:
-        if arg not in args:
-            raise DungeonDraftStyleConverterException("Missing arg {0}".format(arg))
-
-
 def check_option_args(args: List[str]) -> None:
     __check_for_unknown_arguments(args)
     __check_for_illegal_argument_combos(args)
     __check_for_duplicate_args(args)
-    __check_for_missing_args(args)
 
 
 def __add_logging_stream_handler(level: int):

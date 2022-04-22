@@ -7,15 +7,14 @@ About\n\
 \n\
 This is a prototype of a program that allows you to change the style of DungeonDraft maps with the help of conversion files.\n\
 \n\
-A conversion file is a sort of look-up map which tell the program how to conversion should be done.\n\
-For more information about creating conversion maps see \"How to create conversion maps\"\n\
-\n\
-You can convert: materials to other materials, objects to other materials and so on. \n\
-Currently supported are materials, objects, paths, patterns, portals, roofs, terrains and walls.\n\
-\n\
-The underlying principle is that of a simple search and replace and can be used for all kinds of things. For example:\n\
+The underlying principle is that of a simple search and replace. \n\
+You can replace materials with other materials, objects with other objects and so on.\n\
+The program can be used for all kinds of things. For example:\n\
 - Convert between asset styles like 2-Minute-Tabletop, Crosshead and Forgotten Adventures\n\
-- Convert between summer, winter, spring and fall"
+- Convert between summer, winter, spring and fall\n\
+\n\
+A conversion file is a sort of look-up map which tells the program how the conversion should be done.\n\
+For more information about creating conversion maps see \"How to create conversion maps\""
 
 usage = "\
 Usage\n\
@@ -111,7 +110,7 @@ Install pyInstaller package:\n\
 \n\
 `pip install pyInstaller`\n\
 \n\
-Run build file:\n\
+Run the build file:\n\
 \n\
 `.\\scripts\\build_for_windows.cmd`\n\
 \n\

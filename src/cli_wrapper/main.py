@@ -3,6 +3,7 @@ import logging
 import os.path
 import sys
 import traceback
+from json import JSONDecodeError
 
 import ddstyleconverter
 from cli_wrapper.__args import version_option, help_option, conversion_map_arg, out_arg
@@ -32,15 +33,23 @@ def perform_conversion_with(path_to_target_dd_file: str,
         raise DungeonDraftStyleConverterException(
             "Cannot output to {0}: path already exists".format(path_to_output_dd_file))
 
-    with open(path_to_conversion_map, "rt", encoding="UTF-8") as fh:
-        style_map_dict = json.load(fh)
+    try:
+        with open(path_to_conversion_map, "rt", encoding="UTF-8") as fh:
+            style_map_dict = json.load(fh)
+    except JSONDecodeError:
+        formatted = traceback.format_exc()
+        raise DungeonDraftStyleConverterException("Unable to read json: " + formatted)
 
     style_conversion_map = StyleMapParser.parse(style_map_dict)
 
     converter = Converter.from_style_conversion_map(style_conversion_map)
 
-    with open(path_to_target_dd_file, "rt", encoding="UTF-8") as fh:
-        dungeondraft_map = json.load(fh)
+    try:
+        with open(path_to_target_dd_file, "rt", encoding="UTF-8") as fh:
+            dungeondraft_map = json.load(fh)
+    except JSONDecodeError:
+        formatted = traceback.format_exc()
+        raise DungeonDraftStyleConverterException("Unable to read json: " + formatted)
 
     converter.convert(dungeondraft_map)
 
