@@ -1,4 +1,4 @@
-from ddstyleconverter.conversionmaps.entries.terrain_conversion_entry import TerrainConversionEntry
+from ddstyleconverter.conversionentries.terrain_conversion_entry import TerrainConversionConversionEntry
 from ddstyleconverter.conversionmaps.terrains_conversion_map import TerrainsConversionMap
 
 texture_index_key = "texture_{0}"
@@ -27,6 +27,7 @@ class TerrainConverter:
                 index += 1
                 continue
             else:
-                terrain_conversion_entry: TerrainConversionEntry = self.__terrains_conversion_map[path_to_texture]
+                terrain_conversion_entry: TerrainConversionConversionEntry = self.__terrains_conversion_map[
+                    path_to_texture]
                 terrain_entry[texture_key] = terrain_conversion_entry.get_to_texture()
                 index += 1

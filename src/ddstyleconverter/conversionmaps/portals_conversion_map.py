@@ -1,11 +1,11 @@
 from typing import List
 
-from ddstyleconverter.conversionmaps.base_convertion_map import BaseConversionMap
-from ddstyleconverter.conversionmaps.entries.portal_conversion_entry import PortalConversionEntry
+from ddstyleconverter.conversionentries.portal_conversion_entry import PortalConversionConversionEntry
+from ddstyleconverter.conversionmaps.base_convertion_map import BaseTypeConversionMap
 
 
-class PortalsConversionMap(BaseConversionMap[PortalConversionEntry]):
+class PortalsConversionMap(BaseTypeConversionMap[PortalConversionConversionEntry]):
 
     def __init__(self,
-                 entries: List[PortalConversionEntry]):
+                 entries: List[PortalConversionConversionEntry]):
         super().__init__(entries)

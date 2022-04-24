@@ -1,4 +1,5 @@
-from cli_wrapper.__args import verbose_info_option, verbose_debug_option, version_option, help_option, out_arg, conversion_map_arg
+from cli_wrapper.__args import verbose_info_option, verbose_debug_option, version_option, help_option, out_arg, \
+    conversion_map_arg
 from cli_wrapper.__constants import app_name
 
 about = "\
@@ -220,7 +221,7 @@ What you will see is text in json format. Take a while to understand the basic f
 The important parts are under `world/levels` (reading: Under `world` and there under `levels`), \n\
 here you see the contents of each level. \n\
 The contents are conveniently split into: `patterns, walls, portals, terrain, materials, paths, objects` and `roofs` \n\
-Have a look at each of those entries. Most of them are lists (surrounded by `[]`) of simple sub-entries. \n\
+Have a look at each of those conversion entries. Most of them are lists (surrounded by `[]`) of simple sub-conversionentries. \n\
 For example an `objects` entry has the format: \n\
 \n\
     {\n\
@@ -265,8 +266,8 @@ All entry types extend the same base entry, which has the format:\n\
         \"to_texture\": \"\"\n\
     }\n\
 \n\
-The `from_texture` and `to_texture` entries have to contain values from the respective \n\
-`texture` entries from the dungeondraft_map file. \n\
+The `from_texture` and `to_texture` conversionentries have to contain values from the respective \n\
+`texture` conversionentries from the dungeondraft_map file. \n\
 For example an entry under `materials` would look like this:\n\
 \n\
     {\n\
@@ -274,7 +275,7 @@ For example an entry under `materials` would look like this:\n\
         \"to_texture\": \"res://packs/xjCzavyl/textures/materials/lava_tile.png\"\n\
     }\n\
 \n\
-Which reads as: Replace all `texture` values within `materials` entries that have the value \n\
+Which reads as: Replace all `texture` values within `materials` conversionentries that have the value \n\
 `res://textures/materials/lava_tile.png` with `res://packs/xjCzavyl/textures/materials/lava_tile.png`\n\
 \n\
 The easiest way to find those `texture` values is to have a dungeondraft_map file which contains exactly two things:\n\
@@ -359,7 +360,7 @@ Such a dungeondraft_map file would look something like this: \n\
     }\n\
 \n\
 As you may notice both objects have completely different scales and rotations.\n\
-Because of that the `objects` entries of the conversion maps supports `rotation, translation` and `scale`\n\
+Because of that the `objects` conversionentries of the conversion maps supports `rotation, translation` and `scale`\n\
 \n\
 The `objects` entry to replace \"res://textures/objects/activities/administration/book_04.png\" with \"res://packs/xjCzavyl/textures/objects/book_01.png\" would look like this:\n\
 \n\

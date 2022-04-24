@@ -1,4 +1,5 @@
-/tests/converted_dungeondraft_maps
+/tests/test_environment/converted_dungeondraft_maps
+/tests/test_environment/generated_conversion_maps
 /venv
 __pycache__
 /tests/foundrydata

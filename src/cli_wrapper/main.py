@@ -11,9 +11,9 @@ from cli_wrapper.__args_processor import check_option_args, configure_logging, r
 from cli_wrapper.__constants import app_name, issues_url
 from cli_wrapper.__help_provider import tell_user_how_to_use_the_program
 from cli_wrapper.__help_texts import help_text
-from ddstyleconverter.conversionmaps.entries.parser.style_map_parser import StyleMapParser
 from ddstyleconverter.converter import Converter
 from ddstyleconverter.exceptions import DungeonDraftStyleConverterException, DungeonDraftStyleConverterInternalException
+from parser.conversion_map_parser import ConversionMapParser
 
 bug_report_message = "Please file a bug report on %s" % issues_url
 
@@ -40,7 +40,7 @@ def perform_conversion_with(path_to_target_dd_file: str,
         formatted = traceback.format_exc()
         raise DungeonDraftStyleConverterException("Unable to read json: " + formatted)
 
-    style_conversion_map = StyleMapParser.parse(style_map_dict)
+    style_conversion_map = ConversionMapParser().from_json(style_map_dict)
 
     converter = Converter.from_style_conversion_map(style_conversion_map)
 
@@ -95,6 +95,7 @@ def do_run() -> None:
 
 
 def main() -> None:
+    # noinspection PyBroadException
     try:
         do_run()
     except DungeonDraftStyleConverterInternalException:

@@ -1,4 +1,4 @@
-from ddstyleconverter.conversionmaps.entries.path_conversion_entry import PathConversionEntry
+from ddstyleconverter.conversionentries.path_conversion_entry import PathConversionConversionEntry
 from ddstyleconverter.conversionmaps.paths_conversion_map import PathsConversionMap
 from ddstyleconverter.converters.__constants import texture_key
 
@@ -14,6 +14,6 @@ class PathConverter:
         if path_to_texture not in self.__paths_conversion_map:
             return
 
-        path_conversion_entry: PathConversionEntry = self.__paths_conversion_map[path_to_texture]
+        path_conversion_entry: PathConversionConversionEntry = self.__paths_conversion_map[path_to_texture]
 
         path_entry[texture_key] = path_conversion_entry.get_to_texture()

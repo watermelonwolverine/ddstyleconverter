@@ -1,11 +1,11 @@
 from typing import List
 
-from ddstyleconverter.conversionmaps.base_convertion_map import BaseConversionMap
-from ddstyleconverter.conversionmaps.entries.pattern_conversion_entry import PatternConversionEntry
+from ddstyleconverter.conversionentries.pattern_conversion_entry import PatternConversionConversionEntry
+from ddstyleconverter.conversionmaps.base_convertion_map import BaseTypeConversionMap
 
 
-class PatternsConversionMap(BaseConversionMap[PatternConversionEntry]):
+class PatternsConversionMap(BaseTypeConversionMap[PatternConversionConversionEntry]):
 
     def __init__(self,
-                 entries: List[PatternConversionEntry]):
+                 entries: List[PatternConversionConversionEntry]):
         super().__init__(entries)

@@ -1,11 +1,11 @@
 from typing import List
 
-from ddstyleconverter.conversionmaps.base_convertion_map import BaseConversionMap
-from ddstyleconverter.conversionmaps.entries.material_conversion_entry import MaterialConversionEntry
+from ddstyleconverter.conversionentries.material_conversion_entry import MaterialConversionConversionEntry
+from ddstyleconverter.conversionmaps.base_convertion_map import BaseTypeConversionMap
 
 
-class MaterialsConversionMap(BaseConversionMap[MaterialConversionEntry]):
+class MaterialsConversionMap(BaseTypeConversionMap[MaterialConversionConversionEntry]):
 
     def __init__(self,
-                 entries: List[MaterialConversionEntry]):
+                 entries: List[MaterialConversionConversionEntry]):
         super().__init__(entries)

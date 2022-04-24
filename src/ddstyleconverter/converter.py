@@ -2,7 +2,7 @@ from typing import List
 
 from ddstyleconverter.__constants import world_key, levels_key, objects_key, paths_key, materials_key, patterns_key, \
     portals_key, roofs_key, terrain_key, walls_key
-from ddstyleconverter.conversionmaps.styles_conversion_map import StylesConversionMap
+from ddstyleconverter.conversion_map import ConversionMap
 from ddstyleconverter.converters.base_converter import BaseConverter
 from ddstyleconverter.converters.material_converter import MaterialConverter
 from ddstyleconverter.converters.object_converter import ObjectConverter
@@ -18,7 +18,7 @@ class Converter:
 
     @staticmethod
     def from_style_conversion_map(
-            style_map: StylesConversionMap):
+            style_map: ConversionMap):
         material_converter = MaterialConverter(style_map.material_map)
         object_converter = ObjectConverter(style_map.object_map)
         path_converter = PathConverter(style_map.path_map)

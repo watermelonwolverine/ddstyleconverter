@@ -1,29 +1,55 @@
+from abc import abstractmethod, ABC
 from typing import TypeVar, Generic, List
 
-from ddstyleconverter.conversionmaps.entries.base_entry import BaseEntry
+from ddstyleconverter.conversionentries.base_entry import ConversionEntry
 
-T = TypeVar('T', bound='BaseEntry')
+EntryType = TypeVar('EntryType', bound=ConversionEntry)
 
 
-class BaseConversionMap(Generic[T]):
+class TypeConversionMap(ABC, Generic[EntryType]):
+
+    @abstractmethod
+    def __contains__(self, from_texture: str) -> bool:
+        raise NotImplemented()
+
+    @abstractmethod
+    def __getitem__(self, from_texture: str) -> EntryType:
+        raise NotImplemented()
+
+    @abstractmethod
+    def __len__(self):
+        raise NotImplemented()
+
+    @abstractmethod
+    def get_entries(self) -> List[EntryType]:
+        raise NotImplemented()
+
+
+class BaseTypeConversionMap(TypeConversionMap[EntryType]):
 
     def __init__(self,
-                 entries: List[BaseEntry]):
+                 entries: List[EntryType]):
         self.__entries = entries
 
-    def __contains__(self, item: str) -> bool:
+    def __contains__(self, from_texture: str) -> bool:
 
         for entry in self.__entries:
 
-            if entry.get_from_texture() == item:
+            if entry.get_from_texture() == from_texture:
                 return True
 
         return False
 
-    def __getitem__(self, item: str) -> T:
+    def __getitem__(self, from_texture: str) -> EntryType:
         for entry in self.__entries:
 
-            if entry.get_from_texture() == item:
+            if entry.get_from_texture() == from_texture:
                 return entry
 
-        raise KeyError(item)
+        raise KeyError(from_texture)
+
+    def __len__(self):
+        return len(self.__entries)
+
+    def get_entries(self) -> List[EntryType]:
+        return self.__entries

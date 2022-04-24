@@ -11,4 +11,3 @@ terrain_key = "terrain"
 walls_key = "walls"
 
 asset_manifest_key = "asset_manifest"
-style_maps_key = "style_maps"

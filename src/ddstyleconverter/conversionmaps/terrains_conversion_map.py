@@ -1,11 +1,11 @@
 from typing import List
 
-from ddstyleconverter.conversionmaps.base_convertion_map import BaseConversionMap
-from ddstyleconverter.conversionmaps.entries.terrain_conversion_entry import TerrainConversionEntry
+from ddstyleconverter.conversionentries.terrain_conversion_entry import TerrainConversionConversionEntry
+from ddstyleconverter.conversionmaps.base_convertion_map import BaseTypeConversionMap
 
 
-class TerrainsConversionMap(BaseConversionMap[TerrainConversionEntry]):
+class TerrainsConversionMap(BaseTypeConversionMap[TerrainConversionConversionEntry]):
 
     def __init__(self,
-                 entries: List[TerrainConversionEntry]):
+                 entries: List[TerrainConversionConversionEntry]):
         super().__init__(entries)

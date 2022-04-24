@@ -1,4 +1,4 @@
-from ddstyleconverter.conversionmaps.entries.pattern_conversion_entry import PatternConversionEntry
+from ddstyleconverter.conversionentries.pattern_conversion_entry import PatternConversionConversionEntry
 from ddstyleconverter.conversionmaps.patterns_conversion_map import PatternsConversionMap
 from ddstyleconverter.converters.__constants import texture_key
 
@@ -15,6 +15,6 @@ class PatternConverter:
         if path_to_texture not in self.__patterns_conversion_map:
             return
 
-        pattern_conversion_entry: PatternConversionEntry = self.__patterns_conversion_map[path_to_texture]
+        pattern_conversion_entry: PatternConversionConversionEntry = self.__patterns_conversion_map[path_to_texture]
 
         pattern_entry[texture_key] = pattern_conversion_entry.get_to_texture()

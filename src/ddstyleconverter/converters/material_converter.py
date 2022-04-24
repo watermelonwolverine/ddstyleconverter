@@ -1,4 +1,4 @@
-from ddstyleconverter.conversionmaps.entries.material_conversion_entry import MaterialConversionEntry
+from ddstyleconverter.conversionentries.material_conversion_entry import MaterialConversionConversionEntry
 from ddstyleconverter.conversionmaps.materials_conversion_map import MaterialsConversionMap
 from ddstyleconverter.converters.__constants import texture_key
 from ddstyleconverter.converters.base_converter import BaseConverter
@@ -16,6 +16,6 @@ class MaterialConverter(BaseConverter):
         if path_to_texture not in self.__materials_conversion_map:
             return
 
-        material_conversion_entry: MaterialConversionEntry = self.__materials_conversion_map[path_to_texture]
+        material_conversion_entry: MaterialConversionConversionEntry = self.__materials_conversion_map[path_to_texture]
 
         material_entry[texture_key] = material_conversion_entry.get_to_texture()

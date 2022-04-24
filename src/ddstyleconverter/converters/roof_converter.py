@@ -1,4 +1,4 @@
-from ddstyleconverter.conversionmaps.entries.roof_conversion_entry import RoofConversionEntry
+from ddstyleconverter.conversionentries.roof_conversion_entry import RoofConversionConversionEntry
 from ddstyleconverter.conversionmaps.roofs_conversion_map import RoofsConversionMap
 from ddstyleconverter.converters.__constants import texture_key
 
@@ -15,6 +15,6 @@ class RoofConverter:
         if path_to_texture not in self.__roofs_conversion_map:
             return
 
-        roof_conversion_entry: RoofConversionEntry = self.__roofs_conversion_map[path_to_texture]
+        roof_conversion_entry: RoofConversionConversionEntry = self.__roofs_conversion_map[path_to_texture]
 
         roof_entry[texture_key] = roof_conversion_entry.get_to_texture()

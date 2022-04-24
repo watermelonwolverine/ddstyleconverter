@@ -1,8 +1,8 @@
-from ddstyleconverter.conversionmaps.entries.object_conversion_entry import ObjectConversionEntry
+from ddstyleconverter.conversionentries.object_conversion_entry import ObjectConversionConversionEntry
 from ddstyleconverter.conversionmaps.objects_conversion_map import ObjectsConversionMap
 from ddstyleconverter.converters.__constants import texture_key, rotation_key, position_key, scale_key
 from ddstyleconverter.converters.base_converter import BaseConverter
-from ddstyleconverter.vector2 import Vector2
+from parser.vector2_parser import Vector2Parser
 
 
 class ObjectConverter(BaseConverter):
@@ -17,19 +17,19 @@ class ObjectConverter(BaseConverter):
         if path_to_texture not in self.__objects_conversion_map:
             return
 
-        object_conversion_entry: ObjectConversionEntry = self.__objects_conversion_map[path_to_texture]
+        object_conversion_entry: ObjectConversionConversionEntry = self.__objects_conversion_map[path_to_texture]
 
         object_entry[texture_key] = object_conversion_entry.get_to_texture()
 
         object_entry[rotation_key] += object_conversion_entry.get_rotation()
 
-        position = Vector2.from_string(object_entry[position_key])
+        position = Vector2Parser.from_string(object_entry[position_key])
 
         position += object_conversion_entry.get_translation()
 
         object_entry[position_key] = str(position)
 
-        scale = Vector2.from_string(object_entry[scale_key])
+        scale = Vector2Parser.from_string(object_entry[scale_key])
 
         scale *= object_conversion_entry.get_scale()
 
