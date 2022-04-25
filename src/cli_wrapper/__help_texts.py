@@ -1,4 +1,4 @@
-from cli_wrapper.__args import verbose_info_option, verbose_debug_option, version_option, help_option, out_arg, \
+from cli_wrapper.__args import verbose_info_option, verbose_debug_option, version_arg, help_arg, out_arg, \
     conversion_map_arg
 from cli_wrapper.__constants import app_name
 
@@ -60,8 +60,8 @@ Windows:\n\
     app_name,
     verbose_info_option,
     verbose_debug_option,
-    version_option,
-    help_option,
+    version_arg,
+    help_arg,
     out_arg,
     conversion_map_arg)
 

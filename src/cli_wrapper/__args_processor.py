@@ -2,7 +2,8 @@ import logging
 import sys
 from typing import List
 
-from cli_wrapper.__args import verbose_info_option, verbose_debug_option, allowed_args
+from cli_wrapper.__args import verbose_info_option, verbose_debug_option, allowed_args, create_cmap_arg, \
+    conversion_map_arg
 from ddstyleconverter.exceptions import DungeonDraftStyleConverterException
 
 
@@ -20,6 +21,12 @@ def __check_for_illegal_argument_combos(args: List[str]) -> None:
         msg = combination_error_msg.format(verbose_info_option, verbose_debug_option)
         raise DungeonDraftStyleConverterException(msg)
 
+    if create_cmap_arg in args:
+        illegal_args = {conversion_map_arg}.intersection(args)
+        if len(illegal_args) != 0:
+            msg = combination_error_msg.format(create_cmap_arg, illegal_args)
+            raise DungeonDraftStyleConverterException(msg)
+
 
 def __check_for_duplicate_args(args: List[str]) -> None:
     for allowed_arg in allowed_args:
@@ -27,7 +34,7 @@ def __check_for_duplicate_args(args: List[str]) -> None:
             raise DungeonDraftStyleConverterException("Only one occurrence per option is allowed")
 
 
-def check_option_args(args: List[str]) -> None:
+def check_args(args: List[str]) -> None:
     __check_for_unknown_arguments(args)
     __check_for_illegal_argument_combos(args)
     __check_for_duplicate_args(args)

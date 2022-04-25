@@ -12,8 +12,8 @@ from dungeondraft.ddobject import DDObject, DDObjectParser
 class ConversionMapFromDungeonDraftMapCreator:
 
     def create_conversion_map_from(self,
-                                   dungeondraft_dict: dict) -> ConversionMap:
-        world_dict: dict = dungeondraft_dict.get(world_key)
+                                   dd_map_json: dict) -> ConversionMap:
+        world_dict: dict = dd_map_json.get(world_key)
 
         levels_dict: dict = world_dict.get(levels_key)
 
