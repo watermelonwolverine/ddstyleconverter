@@ -40,6 +40,7 @@ def __maybe_generate_readme_md_file():
 
     if user_input == yes:
         __generate_readme_md_file()
+        input("Press ENTER to continue.")
 
 
 def tell_user_how_to_use_the_program():
