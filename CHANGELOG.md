@@ -8,4 +8,4 @@
 =====
 
 - Added `--create-cmap` arg
-- Creating conversion maps for objects and can now be done much faster be done with special DungeonDraft maps
+- Creating conversion maps for objects can now be done much faster with special DungeonDraft maps
