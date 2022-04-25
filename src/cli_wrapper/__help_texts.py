@@ -1,5 +1,5 @@
 from cli_wrapper.__args import verbose_info_option, verbose_debug_option, version_arg, help_arg, out_arg, \
-    conversion_map_arg
+    conversion_map_arg, create_cmap_arg
 from cli_wrapper.__constants import app_name
 
 about = "\
@@ -28,16 +28,16 @@ If you try to open a map that has references to assets of an un-imported asset p
 Syntax\n\
 ------\n\
 \n\
-`{0} [{1}, {2}, {3}, {4}] target_path {5} output_path {6} conversion_map_path`\n\
+`{0} [{1}, {2}, {3}, {4}, {5} output_path,{6} conversion_map_path, {7}] target_path `\n\
+\n\
+Arguments\n\
+-------\n\
 \n\
 `target_path`: Path to the file which should be processed.\n\
 \n\
-`output_path`: File path to where the result should be written. The file itself must not exist but the parent directory must.\n\
+`{5} output_path`: Specify `output_path` as file path to where the result should be written. The file itself must not exist but the parent directory must.\n\
 \n\
-`conversion_map_path`: Path to the conversion map file.\n\
-\n\
-Options\n\
--------\n\
+`{6} conversion_map_path`: Specify `conversion_map_path` as path to the conversion map file.\n\
 \n\
 `{1}`: Enables verbose output to console\n\
 \n\
@@ -46,6 +46,10 @@ Options\n\
 `{3}`: Print version and exits\n\
 \n\
 `{4}`: Display help and exit \n\
+\n\
+`{7}`: If this option is used the target file is not converted. Instead the target file is used to automatically \n\
+generate a conversion map. For more information about that see \"How To create conversion maps\". This option does \n\
+does not require a `{6}` argument but can be combined with a `{5}` argument.\n\
 \n\
 Examples\n\
 --------\n\
@@ -63,7 +67,8 @@ Windows:\n\
     version_arg,
     help_arg,
     out_arg,
-    conversion_map_arg)
+    conversion_map_arg,
+    create_cmap_arg)
 
 issues = "\
 Known Issues and Quirks\n\
@@ -202,9 +207,22 @@ Uninstallation: Ubuntu\n\
 \n\
 Delete the file /usr/bin/{0}".format(app_name)
 
-how_to_create_conversion_maps = "\
-How To create conversion maps\n\
-=============================\n\
+automatic_creation = "\
+Automatically with the help of DungeonDraft files\n\
+-------------------------------------------------\n\
+\n\
+Conversion maps can be created from DungeonDraft maps. Currently, only object conversions are supported. \n\
+The DungeonDraft map has to have at least two levels. Objects on the first level will get mapped to the closest \n\
+object on the second level. Relative rotation, translation and scale will automatically be calculated. For an example of \n\
+such a DungeonDraft map have a look at `example_maps/vanilla_to_dungeondraft.dungeondraft_map`. \n\
+To create a conversion map from a DungeonDraft map use:  \n\
+`{0} {1} path/to/dd_map.dungeondraft_map` on Ubuntu  \n\
+`{0}.exe {1} path\\to\\dd_map.dungeondraft_map` on Windows  \n\
+".format(app_name, create_cmap_arg)
+
+manual_creation = "\
+Manually by writing them\n\
+------------------------\n\
 \n\
 Conversion maps are simple json files. Don't give up if you're not familiar with the json format. \n\
 The json syntax is really easy to understand and requires zero programming knowledge. \n\
@@ -221,7 +239,7 @@ What you will see is text in json format. Take a while to understand the basic f
 The important parts are under `world/levels` (reading: Under `world` and there under `levels`), \n\
 here you see the contents of each level. \n\
 The contents are conveniently split into: `patterns, walls, portals, terrain, materials, paths, objects` and `roofs` \n\
-Have a look at each of those conversion entries. Most of them are lists (surrounded by `[]`) of simple sub-conversionentries. \n\
+Have a look at each of those entries. Most of them are lists (surrounded by `[]`) of simple sub-entries. \n\
 For example an `objects` entry has the format: \n\
 \n\
     {\n\
@@ -266,8 +284,8 @@ All entry types extend the same base entry, which has the format:\n\
         \"to_texture\": \"\"\n\
     }\n\
 \n\
-The `from_texture` and `to_texture` conversionentries have to contain values from the respective \n\
-`texture` conversionentries from the dungeondraft_map file. \n\
+The `from_texture` and `to_texture` entries have to contain values from the respective \n\
+`texture` entries from the dungeondraft_map file. \n\
 For example an entry under `materials` would look like this:\n\
 \n\
     {\n\
@@ -275,7 +293,7 @@ For example an entry under `materials` would look like this:\n\
         \"to_texture\": \"res://packs/xjCzavyl/textures/materials/lava_tile.png\"\n\
     }\n\
 \n\
-Which reads as: Replace all `texture` values within `materials` conversionentries that have the value \n\
+Which reads as: Replace all `texture` values within `materials` entries that have the value \n\
 `res://textures/materials/lava_tile.png` with `res://packs/xjCzavyl/textures/materials/lava_tile.png`\n\
 \n\
 The easiest way to find those `texture` values is to have a dungeondraft_map file which contains exactly two things:\n\
@@ -360,7 +378,7 @@ Such a dungeondraft_map file would look something like this: \n\
     }\n\
 \n\
 As you may notice both objects have completely different scales and rotations.\n\
-Because of that the `objects` conversionentries of the conversion maps supports `rotation, translation` and `scale`\n\
+Because of that the `objects` entries of the conversion maps supports `rotation, translation` and `scale`\n\
 \n\
 The `objects` entry to replace \"res://textures/objects/activities/administration/book_04.png\" with \"res://packs/xjCzavyl/textures/objects/book_01.png\" would look like this:\n\
 \n\
@@ -372,6 +390,14 @@ The `objects` entry to replace \"res://textures/objects/activities/administratio
         \"scale\": \"Vector2( 0.552237, 0.552237 )\"\n\
     }\n\
 "
+
+how_to_create_conversion_maps = "\
+How To create conversion maps\n\
+=============================\n\
+\n\
+{0}\n\
+\n\
+{1}".format(automatic_creation, manual_creation)
 
 installation = "\
 {0}\n\

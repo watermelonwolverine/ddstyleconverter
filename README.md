@@ -147,16 +147,16 @@ If you try to open a map that has references to assets of an un-imported asset p
 Syntax
 ------
 
-`ddstyleconverter [--verbose-info, --verbose-debug, --version, --help] target_path --out output_path --cmap conversion_map_path`
+`ddstyleconverter [--verbose-info, --verbose-debug, --version, --help, --out output_path,--cmap conversion_map_path, --create-cmap] target_path `
+
+Arguments
+-------
 
 `target_path`: Path to the file which should be processed.
 
-`output_path`: File path to where the result should be written. The file itself must not exist but the parent directory must.
+`--out output_path`: Specify `output_path` as file path to where the result should be written. The file itself must not exist but the parent directory must.
 
-`conversion_map_path`: Path to the conversion map file.
-
-Options
--------
+`--cmap conversion_map_path`: Specify `conversion_map_path` as path to the conversion map file.
 
 `--verbose-info`: Enables verbose output to console
 
@@ -165,6 +165,10 @@ Options
 `--version`: Print version and exits
 
 `--help`: Display help and exit 
+
+`--create-cmap`: If this option is used the target file is not converted. Instead the target file is used to automatically 
+generate a conversion map. For more information about that see "How To create conversion maps". This option does 
+does not require a `--cmap` argument but can be combined with a `--out` argument.
 
 Examples
 --------
@@ -189,6 +193,21 @@ will fail but `ddstyleconverter.exe '\folder name with spaces'` will succeed.
 
 How To create conversion maps
 =============================
+
+Automatically with the help of DungeonDraft files
+-------------------------------------------------
+
+Conversion maps can be created from DungeonDraft maps. Currently, only object conversions are supported. 
+The DungeonDraft map has to have at least two levels. Objects on the first level will get mapped to the closest 
+object on the second level. Relative rotation, translation and scale will automatically be calculated. For an example of 
+such a DungeonDraft map have a look at `example_maps/vanilla_to_dungeondraft.dungeondraft_map`. 
+To create a conversion map from a DungeonDraft map use:  
+`ddstyleconverter --create-cmap path/to/dd_map.dungeondraft_map` on Ubuntu  
+`ddstyleconverter.exe --create-cmap path\to\dd_map.dungeondraft_map` on Windows  
+
+
+Manually by writing them
+------------------------
 
 Conversion maps are simple json files. Don't give up if you're not familiar with the json format. 
 The json syntax is really easy to understand and requires zero programming knowledge. 
