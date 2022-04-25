@@ -33,6 +33,6 @@ class BaseConversionEntryParser(ConversionEntryParser[BaseConversionEntry]):
     def to_json(self,
                 entry: BaseConversionEntry) -> dict:
         result = {from_texture_key: entry.get_from_texture(),
-                  to_texture_key: entry.get_from_texture()}
+                  to_texture_key: entry.get_to_texture()}
 
         return result

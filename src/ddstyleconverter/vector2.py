@@ -19,8 +19,8 @@ class Vector2:
 
         other_vector2: Vector2 = other
 
-        return Vector2(other_vector2.x + self.x,
-                       other_vector2.y + self.y)
+        return Vector2(self.x + other_vector2.x,
+                       self.y + other_vector2.y)
 
     def __sub__(self, other):
         if type(other) is not Vector2:
@@ -28,8 +28,8 @@ class Vector2:
 
         other_vector2: Vector2 = other
 
-        return Vector2(other_vector2.x - self.x,
-                       other_vector2.y - self.y)
+        return Vector2(self.x - other_vector2.x,
+                       self.y - other_vector2.y)
 
     def __mul__(self, other):
         if type(other) is not Vector2:
@@ -37,8 +37,8 @@ class Vector2:
 
         other_vector2: Vector2 = other
 
-        return Vector2(other_vector2.x * self.x,
-                       other_vector2.y * self.y)
+        return Vector2(self.x * other_vector2.x,
+                       self.y * other_vector2.y)
 
     def __truediv__(self, other):
         if type(other) is not Vector2:
@@ -46,8 +46,8 @@ class Vector2:
 
         other_vector2: Vector2 = other
 
-        return Vector2(other_vector2.x / self.x,
-                       other_vector2.y / self.y)
+        return Vector2(self.x / other_vector2.x,
+                       self.y / other_vector2.y)
 
     def __abs__(self) -> float:
         return math.sqrt(math.pow(self.x, 2) + math.pow(self.y, 2))

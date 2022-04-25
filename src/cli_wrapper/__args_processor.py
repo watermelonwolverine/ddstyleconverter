@@ -24,7 +24,7 @@ def __check_for_illegal_argument_combos(args: List[str]) -> None:
     if create_cmap_arg in args:
         illegal_args = {conversion_map_arg}.intersection(args)
         if len(illegal_args) != 0:
-            msg = combination_error_msg.format(create_cmap_arg, illegal_args)
+            msg = combination_error_msg.format(create_cmap_arg, ", ".join(illegal_args))
             raise DungeonDraftStyleConverterException(msg)
 
 
