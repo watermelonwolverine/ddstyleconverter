@@ -1,3 +1,11 @@
+No further development
+======================
+
+This project is a proof of concept. 
+Although the approach proved to work quite well not enough interest was shown by the community during its prototyping and feedback phase. 
+Adoption by the community is essential for this program to be useful as generating a useful set of conversion files can only be done by a community. 
+For this reason no further development will be done.
+
 About
 =====
 
